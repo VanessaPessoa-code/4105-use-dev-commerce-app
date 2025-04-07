@@ -37,34 +37,32 @@ export default function Footer({
               <FooterSection
                 key={`footer-item-${index}`}
                 title={section.title}
-                items={section.items}
-              />
+              >
+                <ul>
+                  {section?.items.map((item) => (
+                    <li key={`footer-item-${item}`}>{item}</li>
+                  ))}
+                </ul>
+              </FooterSection>
             ))}
           </div>
-
           <Divider />
 
-          <div className={styles.subFooter}>
-            <div className={styles.paymentMethods}>
-              <Typography variantStyle="body-large-bold">
-                Formas de Pagamento
-              </Typography>
+          <div className={styles.sectionsContainer}>
+            <FooterSection title="Formas de Pagamento" >
               <div className={styles.paymentIcons}>
-                {paymentIcons.map((icon, index) => icon)}
+                {paymentIcons.map((icon) => icon)}
               </div>
-            </div>
-
-            <div className={styles.socialMedia}>
-              <Typography variantStyle="body-large-bold">
-                Siga nossas redes:
-              </Typography>
+            </FooterSection>
+            <FooterSection title="Siga nossas redes" >
               <div className={styles.socialIcons}>
-                {socialIcons.map((icon, index) => icon)}
+                {socialIcons.map((icon) => icon)}
               </div>
-            </div>
+            </FooterSection>
           </div>
-        </section>
-      </footer>
+          
+        </section >
+      </footer >
       <div className={styles.copryright}>
         <Typography variantStyle="body">
           Desenvolvido por Alura. Projeto fictício sem fins comerciais.

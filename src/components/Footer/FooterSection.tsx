@@ -3,22 +3,18 @@ import Typography from "../Typography";
 
 type FooterSectionProps = {
   readonly title: string;
-  readonly items: string[];
+  children: React.ReactNode;
 };
 
 export default function FooterSection({
   title,
-  items,
+  children,
   ...props
 }: FooterSectionProps) {
   return (
     <div className={styles.section} {...props}>
       <Typography variantStyle="body-large-bold">{title}</Typography>
-      <ul>
-        {items.map((item) => (
-          <li key={`footer-item-${item}`}>{item}</li>
-        ))}
-      </ul>
+      {children}
     </div>
   );
 }
